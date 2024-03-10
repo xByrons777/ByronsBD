@@ -1,26 +1,3 @@
-CREATE DATABASE Promos;
-
-Use Promos;
-
-CREATE TABLE Peliculas (
-    id_pelicula INT PRIMARY KEY,
-    titulo VARCHAR(255),
-    duracion_minutos INT,
-    clasificacion VARCHAR(50),
-    genero VARCHAR(50)
-);
-
-CREATE TABLE Salas (
-    id_sala INT PRIMARY KEY,
-    nombre VARCHAR(255),
-    capacidad INT
-);
-
-CREATE TABLE Horarios (
-    id_horario INT PRIMARY KEY,
-    hora_inicio TIME,
-    hora_fin TIME
-);
 
 CREATE TABLE Funciones (
     id_funcion INT PRIMARY KEY,
@@ -28,9 +5,9 @@ CREATE TABLE Funciones (
     id_sala INT,
     id_horario INT,
     fecha DATE,
-    FOREIGN KEY (id_pelicula) REFERENCES Peliculas(id_pelicula),
-    FOREIGN KEY (id_sala) REFERENCES Salas(id_sala),
-    FOREIGN KEY (id_horario) REFERENCES Horarios(id_horario)
+    FOREIGN KEY (id_pelicula) REFERENCES Pelicula(id_pelicula),
+    FOREIGN KEY (id_sala) REFERENCES Sala(id_sala),
+    FOREIGN KEY (id_horario) REFERENCES Horarios_de_proyec(id_horario)
 );
 
 CREATE TABLE Promociones (
